@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Test</title>
+</head>
+<body>
+    <h1>Frontend Debug Test</h1>
+    <div id="test">Loading...</div>
+    <script>
+        // Test if basic JS works
+        document.getElementById('test').innerHTML = 'JavaScript is working!';
+        
+        // Test API call
+        fetch('http://localhost:4001/api/events')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('test').innerHTML += '<br>API Response: ' + JSON.stringify(data.length) + ' events found';
+            })
+            .catch(error => {
+                document.getElementById('test').innerHTML += '<br>API Error: ' + error.message;
+            });
+    </script>
+</body>
+</html>
