@@ -12,9 +12,9 @@ server {
         add_header Expires "0";
     }
     
-    # API proxy to backend (if NGINX_API_URL is set)
+    # API proxy to backend (if REACT_APP_API_BASE_URL is set)
     location /api/ {
-        proxy_pass ${NGINX_API_URL};
+        proxy_pass ${REACT_APP_API_BASE_URL};
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

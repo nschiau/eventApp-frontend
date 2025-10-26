@@ -6,8 +6,8 @@ apk add --no-cache gettext
 # Replace env vars in frontend template
 envsubst < /usr/share/nginx/html/env.template.js > /usr/share/nginx/html/env.js
 
-# If NGINX_API_URL is not set, disable the proxy config
-if [ -z "$NGINX_API_URL" ]; then
+# If REACT_APP_API_BASE_URL is not set, disable the proxy config
+if [ -z "$REACT_APP_API_BASE_URL" ]; then
     # Create a simple nginx config without proxy
     cat > /etc/nginx/conf.d/default.conf << EOF
 server {
@@ -29,7 +29,7 @@ server {
 EOF
 else
     # Use the template with proxy configuration
-    envsubst '$NGINX_API_URL' < /etc/nginx/conf.d/nginx.conf.template > /etc/nginx/conf.d/default.conf
+    envsubst '$REACT_APP_API_BASE_URL' < /etc/nginx/conf.d/nginx.conf.template > /etc/nginx/conf.d/default.conf
 fi
 
 # Start nginx
