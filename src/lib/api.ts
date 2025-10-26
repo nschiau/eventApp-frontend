@@ -2,7 +2,7 @@ import { Event, InsertEvent } from "@shared/schema";
 
 const runtimeApiBase = (typeof window !== 'undefined' && (window as any)._env_?.REACT_APP_API_BASE_URL) as string | undefined;
 const mode = (import.meta as any)?.env?.MODE as string | undefined;
-const API_BASE_URL = runtimeApiBase ?? (mode === 'production' ? '/api' : 'http://localhost:4001/api');
+const API_BASE_URL = runtimeApiBase || '/api';
 
 // API client for .NET backend
 export const api = {
