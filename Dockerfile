@@ -16,11 +16,11 @@ RUN rm -rf /usr/share/nginx/html/* /etc/nginx/conf.d/default.conf
 # Copy built files
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY attached_assets/stock_images /usr/share/nginx/html/attached_assets/stock_images
-COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # --- Runtime env injection support ---
-# Add the env template
+# Add the env template and nginx config template
 COPY env.template.js /usr/share/nginx/html/env.template.js
+COPY nginx.conf.template /etc/nginx/conf.d/nginx.conf.template
 
 # Copy and setup entrypoint
 COPY docker-entrypoint.sh /docker-entrypoint.sh
