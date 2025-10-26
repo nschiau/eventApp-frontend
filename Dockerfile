@@ -22,13 +22,8 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Add the env template
 COPY env.template.js /usr/share/nginx/html/env.template.js
 
-# Create entrypoint script
-COPY <<'EOF' /docker-entrypoint.sh
-#!/bin/sh
-envsubst < /usr/share/nginx/html/env.template.js > /usr/share/nginx/html/env.js
-exec nginx -g "daemon off;"
-EOF
-
+# Copy and setup entrypoint
+COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 80
