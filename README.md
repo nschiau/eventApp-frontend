@@ -1,15 +1,17 @@
-# EventHorizon Frontend - React Event Management App
+# EventHorizon Frontend - React Event Management App Test
 
 A modern, responsive React application for event management built with TypeScript, Tailwind CSS, and Vite. Features a clean, intuitive interface for browsing, creating, and managing events.
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 - EventHorizon API running (see backend repository)
 
 ### Installation & Setup
+
 ```bash
 # Clone the repository
 git clone <your-frontend-repo-url>
@@ -25,6 +27,7 @@ npm run dev
 The app will be available at http://localhost:5173
 
 ### With Docker
+
 ```bash
 # Build and run with Docker
 docker build -t eventhorizon-frontend .
@@ -80,11 +83,13 @@ eventapp-frontend/
 ## 🛠️ Technology Stack
 
 ### Core Framework
+
 - **React 18** - Latest React with concurrent features
 - **TypeScript** - Type-safe JavaScript
 - **Vite** - Fast build tool and dev server
 
 ### UI & Styling
+
 - **Tailwind CSS** - Utility-first CSS framework
 - **Shadcn/ui** - Beautiful, accessible components
 - **Radix UI** - Unstyled, accessible UI primitives
@@ -92,14 +97,17 @@ eventapp-frontend/
 - **Framer Motion** - Smooth animations
 
 ### State Management & Data
+
 - **React Query (TanStack Query)** - Server state management
 - **React Hook Form** - Form handling with validation
 - **Zod** - Schema validation
 
 ### Routing & Navigation
+
 - **Wouter** - Lightweight React router
 
 ### Development Tools
+
 - **PostCSS** - CSS processing
 - **Autoprefixer** - CSS vendor prefixes
 - **ESLint** - Code linting
@@ -107,6 +115,7 @@ eventapp-frontend/
 ## 🎨 Features
 
 ### ✅ Current Features
+
 - **Event Browsing** - View all events with filtering by category
 - **Event Creation** - Create new events with form validation
 - **Responsive Design** - Works on desktop, tablet, and mobile
@@ -118,6 +127,7 @@ eventapp-frontend/
 - **Toast Notifications** - User feedback system
 
 ### 🔄 Planned Features
+
 - Event editing and deletion
 - Image upload functionality
 - Event search and advanced filtering
@@ -129,6 +139,7 @@ eventapp-frontend/
 ## 🚀 Development
 
 ### Available Scripts
+
 ```bash
 # Development server
 npm run dev              # Start dev server at http://localhost:5173
@@ -142,12 +153,14 @@ npm run check           # TypeScript type checking
 ```
 
 ### Development Workflow
+
 1. **Start Development**: `npm run dev`
 2. **Make Changes**: Edit files in `src/`
 3. **View Changes**: Hot reload at http://localhost:5173
 4. **Build**: `npm run build` for production
 
 ### Adding New Components
+
 ```bash
 # Add a new shadcn/ui component
 npx shadcn-ui@latest add [component-name]
@@ -157,7 +170,9 @@ npx shadcn-ui@latest add dialog
 ```
 
 ### Environment Variables
+
 Create `.env.local` for local development:
+
 ```env
 VITE_API_BASE_URL=http://localhost:8080
 VITE_APP_TITLE=EventHorizon
@@ -168,14 +183,17 @@ VITE_APP_TITLE=EventHorizon
 The frontend connects to the EventHorizon API backend. Configure the API base URL in:
 
 ### Development
+
 - Default: `http://localhost:4001/api` (local API)
 - Vite proxy: Configured in `vite.config.ts`
 
 ### Production
+
 - Docker: `/api` (proxied through nginx)
 - Update `src/lib/api.ts` for your production API URL
 
 ### API Endpoints Used
+
 - `GET /api/events` - Fetch events
 - `POST /api/events` - Create event
 - `PUT /api/events/{id}` - Update event
@@ -187,6 +205,7 @@ The frontend connects to the EventHorizon API backend. Configure the API base UR
 ## 🐳 Docker Deployment
 
 ### Development
+
 ```bash
 # Build image
 docker build -t eventhorizon-frontend .
@@ -196,6 +215,7 @@ docker run -p 3000:80 eventhorizon-frontend
 ```
 
 ### Production
+
 ```bash
 # Build production image
 docker build --target production -t eventhorizon-frontend:prod .
@@ -205,6 +225,7 @@ docker run -p 80:80 -v ./nginx.conf:/etc/nginx/nginx.conf eventhorizon-frontend:
 ```
 
 ### Docker Compose (with backend)
+
 ```yaml
 services:
   frontend:
@@ -220,18 +241,22 @@ services:
 ## 🎨 Customization
 
 ### Theme Configuration
+
 Edit `tailwind.config.ts` to customize:
+
 - Colors and design tokens
 - Typography scales
 - Spacing and sizing
 - Animation timings
 
 ### UI Components
+
 - Components in `src/components/ui/` are from shadcn/ui
 - Customize in `components.json`
 - Override styles in component files
 
 ### Adding New Pages
+
 1. Create component in `src/pages/`
 2. Add route in `src/App.tsx`
 3. Update navigation in `src/components/Header.tsx`
@@ -239,11 +264,13 @@ Edit `tailwind.config.ts` to customize:
 ## 📱 Responsive Design
 
 The app is fully responsive with breakpoints:
+
 - **Mobile**: < 768px
-- **Tablet**: 768px - 1024px  
+- **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
 
 Key responsive features:
+
 - Mobile-first design approach
 - Touch-friendly interactions
 - Collapsible navigation
@@ -253,6 +280,7 @@ Key responsive features:
 ## 🧪 Testing
 
 ### Running Tests
+
 ```bash
 # Run all tests
 npm test
@@ -272,13 +300,16 @@ npm test -- src/components/
 ```
 
 ### Test Structure
+
 - **Unit Tests**: Components, utilities, and API functions
 - **Integration Tests**: Page components with mocked APIs
 - **Mocking**: MSW (Mock Service Worker) for API calls
 - **Framework**: Vitest + React Testing Library
 
 ### Test Coverage
+
 Current test coverage includes:
+
 - ✅ **Components**: CategoryBadge, EventCard (partial)
 - ✅ **Utilities**: className utility functions
 - ✅ **API Functions**: Authentication and events (partial)
@@ -286,6 +317,7 @@ Current test coverage includes:
 - 🔄 **Navigation**: Header component (in progress)
 
 ### Manual Testing Checklist
+
 - [ ] Event listing loads correctly
 - [ ] Create event form validates properly
 - [ ] Category filtering works
@@ -295,6 +327,7 @@ Current test coverage includes:
 - [ ] Toast notifications appear
 
 ### Browser Support
+
 - Chrome/Edge 90+
 - Firefox 88+
 - Safari 14+
@@ -303,6 +336,7 @@ Current test coverage includes:
 ## 🚀 Deployment Options
 
 ### Vercel (Recommended)
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -312,12 +346,14 @@ vercel --prod
 ```
 
 ### Netlify
+
 ```bash
 # Build command: npm run build
 # Publish directory: dist
 ```
 
 ### Static Hosting
+
 ```bash
 # Build the app
 npm run build
@@ -327,7 +363,9 @@ npm run build
 ```
 
 ### CDN Configuration
+
 For production, configure your CDN/hosting:
+
 - Set `dist/` as root directory
 - Configure SPA fallback to `index.html`
 - Enable gzip compression
@@ -336,6 +374,7 @@ For production, configure your CDN/hosting:
 ## 🛡️ Security Considerations
 
 ### Production Checklist
+
 - [ ] Remove debug code and console logs
 - [ ] Validate all user inputs
 - [ ] Sanitize data from API
@@ -345,6 +384,7 @@ For production, configure your CDN/hosting:
 - [ ] Audit dependencies regularly
 
 ### Environment Security
+
 - Never commit API keys or secrets
 - Use environment variables for configuration
 - Validate environment variables at build time
@@ -354,6 +394,7 @@ For production, configure your CDN/hosting:
 ### Common Issues
 
 **Build Errors**
+
 ```bash
 # Clear node modules and reinstall
 rm -rf node_modules package-lock.json
@@ -364,11 +405,13 @@ rm -rf node_modules/.vite
 ```
 
 **API Connection Issues**
+
 - Check API is running at correct URL
 - Verify CORS settings in backend
 - Check browser network tab for errors
 
 **TypeScript Errors**
+
 ```bash
 # Check types
 npm run check
@@ -378,6 +421,7 @@ npm update @types/*
 ```
 
 **Styling Issues**
+
 - Ensure Tailwind classes are spelled correctly
 - Check if custom CSS conflicts with Tailwind
 - Verify component imports
@@ -385,6 +429,7 @@ npm update @types/*
 ## 📚 Resources
 
 ### Documentation
+
 - [React Documentation](https://react.dev/)
 - [Vite Guide](https://vitejs.dev/guide/)
 - [Tailwind CSS](https://tailwindcss.com/docs)
@@ -392,6 +437,7 @@ npm update @types/*
 - [React Query](https://tanstack.com/query/latest)
 
 ### Component Libraries
+
 - [Radix UI](https://www.radix-ui.com/) - Headless components
 - [Lucide Icons](https://lucide.dev/) - Icon library
 - [React Hook Form](https://react-hook-form.com/) - Form handling
@@ -407,6 +453,7 @@ npm update @types/*
 7. Open a Pull Request
 
 ### Code Style Guidelines
+
 - Use TypeScript for all new files
 - Follow existing naming conventions
 - Add proper type annotations
@@ -422,6 +469,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🎯 Performance
 
 ### Optimization Features
+
 - **Tree Shaking** - Dead code elimination
 - **Code Splitting** - Lazy loading of routes
 - **Image Optimization** - WebP support with fallbacks
@@ -429,6 +477,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - **Bundle Analysis** - Optimized chunk sizes
 
 ### Performance Metrics
+
 - Lighthouse Score: 95+ (Performance, Accessibility, SEO)
 - First Contentful Paint: < 1.5s
 - Largest Contentful Paint: < 2.5s
