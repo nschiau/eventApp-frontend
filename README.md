@@ -1,8 +1,8 @@
-# EventHorizon Frontend - React Event Management App Test
+# EventHorizon Frontend - React Event Management App
 
 A modern, responsive React application for event management built with TypeScript, Tailwind CSS, and Vite. Features a clean, intuitive interface for browsing, creating, and managing events.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
