@@ -34,7 +34,7 @@ docker build -t eventhorizon-frontend .
 docker run -p 3000:80 eventhorizon-frontend
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 eventapp-frontend/
