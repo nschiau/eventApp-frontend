@@ -25,7 +25,7 @@ const mockEventNoImage: Event = {
 
 describe('EventCard', () => {
   it('renders event information correctly', () => {
-    render(<EventCard event={mockEventNoImage} />)
+    render(<EventCard event={mockEvent} />)
     
     expect(screen.getByTestId('text-title-test-event-1')).toHaveTextContent('Test Concert')
     expect(screen.getByTestId('text-description-test-event-1')).toHaveTextContent('A fantastic test concert with amazing artists')
