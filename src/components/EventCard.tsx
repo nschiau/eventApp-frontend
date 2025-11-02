@@ -1,14 +1,25 @@
 import { Event } from "@shared/schema";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import CategoryBadge from "./CategoryBadge";
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, Trash2 } from "lucide-react";
 import { format } from "date-fns";
+import { api } from "@/lib/api";
+import { Button } from "./ui/button";
 
 interface EventCardProps {
   event: Event;
+  onDelete?: (id: string) => void;
 }
 
-export default function EventCard({ event }: EventCardProps) {
+export default function EventCard({ event, onDelete }: EventCardProps) {
+  const handleDelete = async () => {
+    try {
+      await api.deleteEvent(event.id);
+      onDelete?.(event.id);
+    } catch (error) {
+      console.error('Failed to delete event:', error);
+    }
+  };
   return (
     <Card
       className="overflow-hidden hover-elevate transition-all duration-200 group"
@@ -30,6 +41,15 @@ export default function EventCard({ event }: EventCardProps) {
           <h3 className="text-xl font-semibold text-foreground line-clamp-2" data-testid={`text-title-${event.id}`}>
             {event.title}
           </h3>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 text-muted-foreground hover:text-destructive"
+            onClick={handleDelete}
+            data-testid={`btn-delete-${event.id}`}
+          >
+            <Trash2 className="h-4 w-4" />
+          </Button>
         </div>
         <CategoryBadge category={event.category as any} />
       </CardHeader>
