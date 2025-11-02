@@ -9,7 +9,7 @@
     "build:prod": "cross-env NODE_ENV=production vite build",
     "preview": "vite preview",
     "check": "tsc",
-    "test": "vitest",
+    "test": "vitest run --reporter=default",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage"
